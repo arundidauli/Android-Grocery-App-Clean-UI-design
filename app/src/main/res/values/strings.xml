@@ -126,4 +126,11 @@ Launch Your Android App Development Career. Master the knowledge and skills nece
         "For example, position the FAB to one side of stream of a cards so the FAB won’t interfere "
         "when a user tries to pick up one of cards.\n\n"
     </string>
+    <string name="update">Update</string>
+    <string name="cancel_button">cancel</string>
+    <string name="registration_no">Registration</string>
+    <string name="email">Email</string>
+    <string name="phone">Phone</string>
+    <string name="terms_condition"><![CDATA[Terms & Condition]]></string>
+    <string name="title_activity_home_profile">HomeProfile</string>
 </resources>

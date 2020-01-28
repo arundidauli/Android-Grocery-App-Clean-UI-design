@@ -1,6 +1,5 @@
 package com.techastrum.myappcreater.fragmentdialog;
 
-import android.content.ContextWrapper;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -8,13 +7,12 @@ import android.view.ViewGroup;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.fragment.app.Fragment;
 
 
 import com.techastrum.myappcreater.R;
 
-import java.util.Objects;
-
-public class BottomSheetDetailFragment extends BottomSheetFragment {
+public class BottomSheetDetailFragment extends Fragment {
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

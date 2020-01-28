@@ -25,4 +25,36 @@
 
     <style name="AppTheme.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
 
+    <style name="DialogTheme" parent="@android:style/Theme.Holo.Light.Dialog">
+        <item name="android:buttonStyle">@style/button_green</item>
+        <item name="android:textColorHint">@color/colorAccent</item>
+    </style>
+
+    <style name="MyTheme" parent="android:Theme.Holo.Light">
+        <item name="android:dialogTheme">@style/DialogTheme</item>
+    </style>
+
+    <style name="WideDialog" parent="Base.Theme.AppCompat.Dialog">
+        <item name="android:windowMinWidthMajor">90%</item>
+        <item name="android:windowMinWidthMinor">90%</item>
+    </style>
+
+    <style name="button_green" parent="AppTheme">
+        <item name="android:buttonCornerRadius">5dp</item>
+
+    </style>
+
+    <style name="PopupAnimation" parent="Widget.AppCompat.PopupWindow">
+        <item name="android:windowEnterAnimation">@anim/bottom_up</item>
+        <item name="android:windowExitAnimation">@anim/bottom_down</item>
+    </style>
+
+    <style name="AppBottomSheetDialogTheme"
+        parent="Theme.Design.Light.BottomSheetDialog">
+        <item name="bottomSheetStyle">@style/AppModalStyle</item>
+    </style>
+
+    <style name="AppModalStyle" parent="Widget.Design.BottomSheet.Modal">
+        <item name="android:background">@drawable/bg_theme</item>
+    </style>
 </resources>

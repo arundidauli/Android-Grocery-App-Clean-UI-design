@@ -1,8 +1,12 @@
 package com.techastrum.myappcreater.utils;
 
+import android.content.Context;
+import android.content.res.Resources;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
+import android.graphics.Paint;
 import android.util.Base64;
+import android.util.DisplayMetrics;
 
 import java.io.ByteArrayOutputStream;
 
@@ -27,4 +31,7 @@ public class Utils {
         String temp = Base64.encodeToString(b, Base64.DEFAULT);
         return temp;
     }
+
+
+
 }

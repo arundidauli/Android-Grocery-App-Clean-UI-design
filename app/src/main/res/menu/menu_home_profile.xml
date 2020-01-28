@@ -1,0 +1,31 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context="com.techastrum.myappcreater.activities.HomeProfile">
+    <item
+        android:id="@+id/enquiry"
+        android:orderInCategory="100"
+        android:title="My Profile"
+        android:enabled="true"
+        app:showAsAction="never"
+        />
+    <item
+        android:id="@+id/download_app"
+        android:orderInCategory="100"
+        android:title="Download App"
+        android:enabled="true"
+        app:showAsAction="never" />
+    <item
+        android:id="@+id/publish_app"
+        android:orderInCategory="100"
+        android:title="Publish App"
+        android:enabled="true"
+        app:showAsAction="never" />
+
+    <item
+        android:id="@+id/add_product"
+        android:orderInCategory="100"
+        android:title="Add Product"
+        android:enabled="true"
+        app:showAsAction="never" />
+</menu>

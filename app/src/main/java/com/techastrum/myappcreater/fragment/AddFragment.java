@@ -24,6 +24,7 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.core.content.ContextCompat;
 import androidx.fragment.app.Fragment;
+import androidx.viewpager.widget.PagerAdapter;
 
 import com.bumptech.glide.Glide;
 import com.karumi.dexter.Dexter;
@@ -33,7 +34,10 @@ import com.karumi.dexter.listener.PermissionRequest;
 import com.karumi.dexter.listener.multi.MultiplePermissionsListener;
 import com.techastrum.myappcreater.R;
 import com.techastrum.myappcreater.activities.CreateNew;
+import com.techastrum.myappcreater.activities.HomeProfile;
 import com.techastrum.myappcreater.activities.ImagePickerActivity;
+import com.techastrum.myappcreater.activities.ManageActivity;
+import com.techastrum.myappcreater.adapter.ScreenSlidePagerAdapter;
 import com.techastrum.myappcreater.utils.Prefs;
 import com.techastrum.myappcreater.utils.Utils;
 
@@ -42,13 +46,13 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 
-public class AddFragment extends Fragment {
+public class AddFragment extends Fragment implements AdapterView.OnItemSelectedListener{
     private static final int REQUEST_IMAGE = 100;
     private static final String TAG = CreateNew.class.getSimpleName();
     private Prefs prefs;
     private ImageView image_profile;
     private String image="";
-
+    private PagerAdapter pagerAdapter;
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -74,7 +78,7 @@ public class AddFragment extends Fragment {
         sub_category.add("Sub Category");
         sub_category.add("Sub Category");
         sub_category.add("Sub Category");
-
+        pagerAdapter = new ScreenSlidePagerAdapter(getActivity().getSupportFragmentManager());
         SpinnerMethod(arrayList, category,"category");
         SpinnerMethod(sub_category, subcategory,"subcategory");
         EditText service_name = view.findViewById(R.id.service_name);
@@ -93,7 +97,7 @@ public class AddFragment extends Fragment {
 
             }else {
                // productList.add(new Product(service_name.getText().toString(),prefs.GetValue("option"),prefs.GetValue("option"),price.getText().toString(),detail.getText().toString(),image));
-                Intent intent=new Intent(getActivity(),CreateNew.class);
+                Intent intent=new Intent(getActivity(), HomeProfile.class);
                 intent.putExtra("title",service_name.getText().toString());
                 intent.putExtra("price",price.getText().toString());
                 intent.putExtra("detail",detail.getText().toString());
@@ -115,7 +119,7 @@ public class AddFragment extends Fragment {
                 android.R.layout.simple_selectable_list_item, arrayList);
         adapter.setDropDownViewResource(android.R.layout.simple_selectable_list_item);
         spinner.setAdapter(adapter);
-        spinner.setOnItemSelectedListener((AdapterView.OnItemSelectedListener) getActivity());
+        spinner.setOnItemSelectedListener(this);
         spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
@@ -257,4 +261,13 @@ public class AddFragment extends Fragment {
     }
 
 
+    @Override
+    public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+
+    }
+
+    @Override
+    public void onNothingSelected(AdapterView<?> parent) {
+
+    }
 }

@@ -1,39 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".activities.ManageActivity">
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="55dp"
-        android:background="#293859" />
-
-    <!--Top Header Layout-->
-    <LinearLayout
-        android:id="@+id/topbar"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_alignParentTop="true"
-        android:gravity="center_vertical"
-        android:paddingRight="16dp"
-        android:paddingBottom="@dimen/padding_8dp"
-        android:paddingLeft="16dp">
-
-        <ImageView
-            android:id="@+id/go_home"
-            android:layout_width="40dp"
-            android:layout_height="40dp"
-            android:padding="10dp"
-            android:tint="@color/white"
-            app:srcCompat="@drawable/ic_android_black_24dp" />
-
-        <Space
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="1" />
-
+        android:gravity="center"
+        android:background="#293859">
         <TextView
             android:id="@+id/app_name"
             android:layout_width="wrap_content"
@@ -42,30 +19,6 @@
             android:textColor="@color/white"
             android:textSize="20sp"
             android:textStyle="bold" />
-
-        <Space
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="1" />
-
-        <RelativeLayout
-            android:layout_width="50dp"
-            android:layout_height="50dp">
-
-
-
-            <ImageView
-                android:id="@+id/setting"
-                android:layout_width="40dp"
-                android:layout_height="40dp"
-                android:layout_alignParentTop="true"
-                android:layout_alignParentEnd="true"
-                android:layout_margin="8dp"
-                android:padding="4dp"
-                app:srcCompat="@drawable/ic_settings_application"
-                android:layout_alignParentRight="true" />
-        </RelativeLayout>
-
     </LinearLayout>
 
     <androidx.core.widget.NestedScrollView
@@ -73,113 +26,181 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="55dp">
+
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:gravity="center"
             android:orientation="vertical">
-            <de.hdodenhof.circleimageview.CircleImageView
-                android:id="@+id/profile_image"
-                android:layout_width="150dp"
-                android:layout_height="150dp"
-                app:civ_border_width="1sp"
-                android:src="@mipmap/samsung"
-                android:focusable="true"
-                android:layout_marginTop="20dp"
-                app:civ_border_color="#896AF3"/>
+
 
             <TextView
-                android:id="@+id/textView4"
+                android:id="@+id/textVawfawfiew2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="15dp"
+                android:layout_marginTop="20dp"
+                android:layout_marginEnd="15dp"
+                android:padding="@dimen/padding_8dp"
+                android:text="Please enter the required details."
+                android:textAlignment="center"
+                android:textSize="15dp" />
+
+
+            <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:fontFamily="sans-serif"
-                android:text="Samson Phone"
-                android:padding="5dp"
-                android:textSize="18sp" />
-
-            <LinearLayout
+                android:layout_gravity="start"
+                android:layout_marginLeft="35dp"
+                android:text="Category"/>
+            <Spinner
+                android:id="@+id/spinner_category"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal">
-                <ImageView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:tint="@color/colorAccent"
-                    android:padding="@dimen/padding_8dp"
-                    app:srcCompat="@drawable/ic_call"/>
-                <TextView
-                    android:id="@+id/contact"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:fontFamily="sans-serif"
-                    android:layout_gravity="center_vertical"
-                    android:padding="@dimen/padding_8dp"
-                    android:text="9090909090" />
-                <ImageView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:tint="@color/colorAccent"
-                    android:padding="@dimen/padding_8dp"
-                    app:srcCompat="@drawable/ic_email"/>
-                <TextView
-                    android:id="@+id/email"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:fontFamily="sans-serif"
-                    android:layout_gravity="center_vertical"
-                    android:padding="@dimen/padding_8dp"
-                    android:text="arun@gmail.com" />
-            </LinearLayout>
+                android:layout_height="45dp"
+                android:layout_marginLeft="35dp"
+                android:layout_marginTop="@dimen/padding_8dp"
+                android:layout_marginRight="35dp"
+                android:background="@drawable/rectangle_border"
+                android:padding="@dimen/padding_8dp" />
             <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="start"
+                android:layout_marginLeft="35dp"
+                android:layout_marginTop="@dimen/padding_8dp"
+                android:text="Sub Category"/>
+            <Spinner
+                android:id="@+id/spinner_subcategory"
+                android:layout_width="match_parent"
+                android:layout_height="45dp"
+                android:layout_marginStart="35dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginEnd="35dp"
+                android:background="@drawable/rectangle_border"
+                android:padding="@dimen/padding_8dp" />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="start"
+                android:layout_marginLeft="35dp"
+                android:layout_marginTop="@dimen/padding_8dp"
+                android:text="Service/Product Name"/>
+            <EditText
+                android:id="@+id/service_name"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:textColor="@color/colorAccent"
-                android:padding="@dimen/padding_8dp"
-                android:textSize="12sp"
-                android:text="About us"/>
+                android:layout_marginStart="35dp"
+                android:layout_marginEnd="35dp"
+                android:ems="10"
+                android:hint="Service/Product Name"
+                android:inputType="textMultiLine"
+                android:maxLength="125"
+                android:layout_marginTop="@dimen/padding_8dp"
+                android:padding="16dp" />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="start"
+                android:layout_marginLeft="35dp"
+                android:layout_marginTop="@dimen/padding_8dp"
+                android:text="Price"/>
+            <EditText
+                android:id="@+id/price"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="35dp"
+                android:layout_marginTop="@dimen/padding_8dp"
+                android:layout_marginEnd="35dp"
+                android:ems="10"
+                android:hint="Price"
+                android:inputType="textMultiLine"
+                android:maxLength="125"
+                android:padding="16dp" />
 
             <TextView
-                android:id="@+id/about_us"
-                android:layout_width="match_parent"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:fontFamily="sans-serif"
-                android:text="Fashion is my passion"
-                android:layout_marginLeft="16dp"
-                android:layout_marginRight="16dp"
+                android:layout_gravity="start"
+                android:layout_marginLeft="30dp"
                 android:padding="@dimen/padding_8dp"
-                android:textSize="13sp" />
+                android:text="Add Detail" />
+
+            <EditText
+                android:id="@+id/detail"
+                android:layout_width="match_parent"
+                android:layout_height="80dp"
+                android:layout_marginStart="35dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginEnd="35dp"
+                android:background="@drawable/rectangle_border"
+                android:ems="10"
+                android:gravity="start"
+                android:hint="Add Detail"
+                android:inputType="textMultiLine"
+                android:padding="16dp"
+                android:textAlignment="textStart" />
 
             <androidx.cardview.widget.CardView
-                android:layout_width="match_parent"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                app:cardCornerRadius="14dp"
-                android:layout_margin="20dp"
-                android:visibility="gone"
+                android:layout_gravity="center_horizontal"
+                android:layout_margin="@dimen/padding_8dp"
+                app:cardCornerRadius="@dimen/padding_8dp"
                 app:cardElevation="5dp">
-                <Button
-                    android:id="@+id/button"
+
+                <ImageView
+                    android:id="@+id/image_logo"
+                    android:layout_width="100dp"
+                    android:layout_height="100dp"
+                    android:layout_gravity="center_horizontal"
+                    android:contentDescription="@string/app_name"
+                    android:tint="@color/colorAccent"
+                    app:srcCompat="@drawable/ic_person_black_24dp" />
+
+                <ImageView
+                    android:id="@+id/image_picker"
+                    android:layout_width="20dp"
+                    android:layout_height="20dp"
+                    android:layout_gravity="end|bottom"
+                    android:contentDescription="@string/app_name"
+                    android:tint="@color/colorPrimary"
+                    android:visibility="gone"
+                    app:srcCompat="@drawable/ic_add_circle" />
+            </androidx.cardview.widget.CardView>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Select a product image"/>
+            <androidx.cardview.widget.CardView
+                android:id="@+id/okay"
+                android:layout_width="254dp"
+                android:layout_height="48dp"
+                android:layout_marginTop="15dp"
+                android:layout_marginBottom="25dp"
+                app:cardBackgroundColor="@color/colorAccent"
+                app:cardCornerRadius="8dp"
+                app:cardMaxElevation="4dp">
+
+                <TextView
+                    android:id="@+id/txt_btn_save"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:padding="8dp"
-                    android:background="@color/colorAccent"
-                    android:text="Add Service/Product"
-                    android:textColor="#fff" />
-
+                    android:layout_gravity="center"
+                    android:text="Save"
+                    android:textAlignment="center"
+                    android:textColor="@color/white"
+                    android:textSize="15dp" />
             </androidx.cardview.widget.CardView>
-            <androidx.recyclerview.widget.RecyclerView
-                android:id="@+id/rv_service"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content">
-
-            </androidx.recyclerview.widget.RecyclerView>
 
 
         </LinearLayout>
     </androidx.core.widget.NestedScrollView>
 
+    <FrameLayout
+        android:id="@+id/container"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
 
 
-
-
-
-</RelativeLayout>
+</androidx.coordinatorlayout.widget.CoordinatorLayout>

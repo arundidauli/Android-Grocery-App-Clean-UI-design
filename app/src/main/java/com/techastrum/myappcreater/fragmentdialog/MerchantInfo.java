@@ -1,9 +1,6 @@
 package com.techastrum.myappcreater.fragmentdialog;
 
-import android.content.ContextWrapper;
-import android.content.Intent;
 import android.os.Bundle;
-import android.text.TextUtils;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -17,21 +14,17 @@ import androidx.cardview.widget.CardView;
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment;
 import com.techastrum.myappcreater.R;
 
-
-import java.util.Objects;
-
 public class MerchantInfo extends BottomSheetDialogFragment {
-    //Button
-    public MerchantInfo() {
 
+    public static MerchantInfo getInstance() {
+        return new MerchantInfo();
     }
+
 
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
-
-
+        setStyle(STYLE_NORMAL, R.style. AppBottomSheetDialogTheme);
 
     }
 
@@ -41,14 +34,18 @@ public class MerchantInfo extends BottomSheetDialogFragment {
         View view = inflater.inflate(R.layout.merchant_info_bottomsheet, container, false);
 
         EditText merchantIdView = view.findViewById(R.id.merchantid);
-        EditText accessTokenView = view.findViewById(R.id.accesstoken);
         CardView okay = view.findViewById(R.id.okay);
 
         okay.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 
+                if (merchantIdView.getText().toString().length()<6){
+                    Toast.makeText(getActivity(),"Enter a valid email",Toast.LENGTH_LONG).show();
+                }else {
+                    dismiss();
 
+                }
 
             }
         });

@@ -4,12 +4,15 @@
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:animateLayoutChanges="true"
+    android:background="@android:color/transparent"
     android:fitsSystemWindows="true">
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:gravity="center"
+        android:background="@drawable/bg_theme"
+
         android:orientation="vertical">
 
         <LinearLayout
@@ -27,9 +30,9 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="20dp"
-            android:text="Please enter the required details."
+            android:text="Please enter your email id"
             android:textAlignment="center"
-            android:textColor="@color/primaryTextColor"
+            android:textColor="@color/white"
             android:textSize="15dp" />
 
         <EditText
@@ -40,23 +43,12 @@
             android:layout_marginTop="20dp"
             android:layout_marginEnd="35dp"
             android:ems="10"
-            android:hint="Merchant ID"
+            android:hint="Email ID"
             android:inputType="textMultiLine"
             android:maxLength="125"
-            android:padding="16dp" />
+            android:padding="16dp"
+            android:textColor="@color/white" />
 
-        <EditText
-            android:id="@+id/accesstoken"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="35dp"
-            android:layout_marginTop="10dp"
-            android:layout_marginEnd="35dp"
-            android:ems="10"
-            android:hint="Access Token"
-            android:inputType="textMultiLine"
-            android:maxLength="125"
-            android:padding="16dp" />
 
         <TextView
             android:id="@+id/textVawfawfiew35"
@@ -65,9 +57,9 @@
             android:layout_marginStart="20dp"
             android:layout_marginTop="20dp"
             android:layout_marginEnd="20dp"
-            android:text="No information is uploaded anywhere. This app is free from any tracking or analatical scripts."
+            android:text="Your app will be send to you by email within working hours"
             android:textAlignment="center"
-            android:textColor="@color/primaryTextColor"
+            android:textColor="@color/white"
             android:textSize="15dp" />
 
         <androidx.cardview.widget.CardView

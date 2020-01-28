@@ -3,6 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     package="com.techastrum.myappcreater">
 
+    <uses-permission android:name="android.permission.CALL_PHONE" />
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.CAMERA" />
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
@@ -19,9 +20,15 @@
         android:theme="@style/AppTheme"
         tools:ignore="GoogleAppIndexingWarning">
         <activity
+            android:name=".activities.HomeProfile"
+            android:label="@string/title_activity_home_profile"
+            android:theme="@style/AppTheme.NoActionBar"></activity>
+        <activity android:name=".activities.App_Pricing" />
+        <activity android:name=".activities.SearchActivity" />
+        <activity
             android:name=".activities.ScrollingActivity"
             android:label="@string/title_activity_scrolling"
-            android:theme="@style/AppTheme.NoActionBar"/>
+            android:theme="@style/AppTheme.NoActionBar" />
         <activity android:name=".activities.ManageActivity" />
         <activity android:name=".activities.ImagePickerActivity" />
         <activity android:name=".activities.CreateNew" />
@@ -38,13 +45,11 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".activities.MainActivity" />
-        <!-- uCrop cropping activity -->
+        <activity android:name=".activities.MainActivity" /> <!-- uCrop cropping activity -->
         <activity
             android:name="com.yalantis.ucrop.UCropActivity"
             android:screenOrientation="portrait"
-            android:theme="@style/AppTheme.NoActionBar" />
-        <!-- cache directory file provider paths -->
+            android:theme="@style/AppTheme.NoActionBar" /> <!-- cache directory file provider paths -->
         <provider
             android:name="androidx.core.content.FileProvider"
             android:authorities="${applicationId}.provider"

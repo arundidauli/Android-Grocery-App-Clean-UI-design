@@ -3,8 +3,22 @@
     xmlns:tools="http://schemas.android.com/tools"
     tools:context="com.techastrum.myappcreater.activities.ScrollingActivity">
     <item
-        android:id="@+id/action_settings"
+        android:id="@+id/enquiry"
         android:orderInCategory="100"
-        android:title="@string/action_settings"
-        app:showAsAction="never" />
+        android:title="Edit Profile"
+        android:enabled="true"
+        app:showAsAction="ifRoom"
+       />
+    <item
+        android:id="@+id/download_app"
+        android:orderInCategory="100"
+        android:title="Download App"
+        android:enabled="true"
+        app:showAsAction="ifRoom" />
+    <item
+        android:id="@+id/publish_app"
+        android:orderInCategory="100"
+        android:title="Publish App"
+        android:enabled="true"
+        app:showAsAction="ifRoom" />
 </menu>

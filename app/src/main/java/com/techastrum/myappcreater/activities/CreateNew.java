@@ -15,6 +15,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
@@ -43,6 +44,7 @@ import com.karumi.dexter.listener.multi.MultiplePermissionsListener;
 import com.techastrum.myappcreater.R;
 import com.techastrum.myappcreater.adapter.ProductAdapter;
 import com.techastrum.myappcreater.fragment.AddFragment;
+import com.techastrum.myappcreater.fragment.ShopFragment;
 import com.techastrum.myappcreater.model.Product;
 
 import java.io.IOException;
@@ -61,17 +63,11 @@ public class CreateNew extends AppCompatActivity implements AdapterView.OnItemSe
     ImageView image_plus;
     @BindView(R.id.image_logo)
     ImageView image_profile;
-    @BindView(R.id.rg_business_type)
-    RadioGroup radioGroup;
-    @BindView(R.id.rv_service)
-    RecyclerView recyclerView;
-    @BindView(R.id.txt_business_type)
-    TextView business_type;
+
+    @BindView(R.id.btn_save)
+    Button btn_saved;
     private Spinner change_date_btn;
-    private ProductAdapter productAdapter;
     private Context context;
-    private List<Product> productList;
-    private Intent intent;
 
 
     @Override
@@ -88,7 +84,6 @@ public class CreateNew extends AppCompatActivity implements AdapterView.OnItemSe
         arrayList.add("Category Name3");
         arrayList.add("Category Name4");
 
-        int[] intArray = new int[20];
 
 
         ArrayAdapter<String> adapter = new ArrayAdapter<>(CreateNew.this,
@@ -96,7 +91,6 @@ public class CreateNew extends AppCompatActivity implements AdapterView.OnItemSe
         adapter.setDropDownViewResource(android.R.layout.simple_selectable_list_item);
         change_date_btn.setAdapter(adapter);
         change_date_btn.setOnItemSelectedListener(this);
-        intent=getIntent();
         image_plus.setOnClickListener(v -> {
             onProfileImageClick();
 
@@ -104,98 +98,29 @@ public class CreateNew extends AppCompatActivity implements AdapterView.OnItemSe
         image_profile.setOnClickListener(v -> {
             onProfileImageClick();
         });
-        radioGroup.clearCheck();
-        radioGroup.setOnCheckedChangeListener((group, checkedId) -> {
 
-            RadioButton rb = group.findViewById(checkedId);
-            if (null != rb && checkedId > -1) {
 
-                // checkedId is the RadioButton selected
-                switch (checkedId) {
-                    case R.id.rd_product:
-                        Open_Product();
-                        // Do Something
-                        break;
 
-                    case R.id.rd_service:
-                        Open_Service();
-                        // Do Something
-                        break;
 
-                    case R.id.rd_both:
-                        // Do Something
-                        Open_Both();
-                        break;
-                }
-            }
+
+        btn_saved.setOnClickListener(v->{
+           Intent intent=new Intent(getApplicationContext(),HomeProfile.class);
+           intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK);
+           intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+           startActivity(intent);
+
+
+
         });
 
-        productList =new ArrayList<>();
-        recyclerView = findViewById(R.id.rv_service);
-
-        productAdapter = new ProductAdapter(productList,context);
-        RecyclerView.LayoutManager mLayoutManager = new LinearLayoutManager(getApplicationContext());
-        recyclerView.setLayoutManager(mLayoutManager);
-        recyclerView.setItemAnimator(new DefaultItemAnimator());
-        recyclerView.setAdapter(productAdapter);
-        if (intent.getStringExtra("title")!=null && intent.getStringExtra("image")!=null && intent.getStringExtra("price")!=null && intent.getStringExtra("detail")!=null){
-            productList.add(new Product(intent.getStringExtra("title"),intent.getStringExtra("category"),intent.getStringExtra("subcategory"),"Rs. "+intent.getStringExtra("price"),intent.getStringExtra("detail"),intent.getStringExtra("image")));
-            productList.add(new Product(intent.getStringExtra("title"),intent.getStringExtra("category"),intent.getStringExtra("subcategory"),"Rs. "+intent.getStringExtra("price"),intent.getStringExtra("detail"),intent.getStringExtra("image")));
-
-        }
-
-        business_type.setOnClickListener(v ->{
-            AddFragment frag = new AddFragment();
-            fragmentcall(frag);
-        });
 
 
     }
 
 
 
-    private void Open_Service() {
-        business_type.setText("Add Service");
-        business_type.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-              //  Toast.makeText(getApplicationContext(), "Service", Toast.LENGTH_LONG).show();
-                AddFragment frag = new AddFragment();
-                fragmentcall(frag);
-            }
-        });
 
-    }
 
-    private void Open_Product() {
-        business_type.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-              //  Toast.makeText(getApplicationContext(), "Product", Toast.LENGTH_LONG).show();
-                AddFragment frag = new AddFragment();
-                fragmentcall(frag);
-            }
-        });
-    }
-
-    private void Open_Both() {
-        business_type.setText("Add Both");
-        business_type.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-              //  Toast.makeText(getApplicationContext(), "Both", Toast.LENGTH_LONG).show();
-                AddFragment frag = new AddFragment();
-                fragmentcall(frag);
-            }
-        });
-    }
-
-    private void fragmentcall(Fragment fragment){
-        final FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
-        transaction.replace(R.id.container, fragment);
-        transaction.addToBackStack(null);
-        transaction.commit();
-    }
 
     private void onProfileImageClick() {
         Dexter.withActivity(this)

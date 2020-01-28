@@ -32,7 +32,7 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:background="#AAE7276C"
+                android:background="#AA462632"
                 android:gravity="top"
                 android:padding="16dp"
                 android:orientation="vertical">
