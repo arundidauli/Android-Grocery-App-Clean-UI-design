@@ -1,0 +1,27 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context="com.techastrum.myappcreater.activities.ScrollingActivity">
+    <item
+        android:id="@+id/home"
+        android:title="Home"
+        android:enabled="true"
+        android:icon="@drawable/home"
+        android:iconTint="@color/colorPrimaryDark"
+       />
+    <item
+        android:id="@+id/cart"
+        android:title="Cart"
+        android:icon="@drawable/cart1"
+        android:iconTint="@color/colorPrimaryDark"
+        android:enabled="true"
+        />
+    <item
+        android:id="@+id/profile"
+        android:title="Profile"
+        android:enabled="true"
+        android:icon="@drawable/user1"
+        android:iconTint="@color/colorPrimaryDark"
+        app:showAsAction="ifRoom"
+        />
+</menu>

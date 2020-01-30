@@ -6,15 +6,12 @@ import android.content.Context;
 import android.content.Intent;
 import android.graphics.Rect;
 import android.graphics.drawable.ColorDrawable;
-import android.nfc.Tag;
 import android.os.Bundle;
 
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
-import com.google.android.material.snackbar.Snackbar;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.appcompat.widget.PopupMenu;
 import androidx.appcompat.widget.Toolbar;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
@@ -35,7 +32,6 @@ import android.widget.Toast;
 import com.techastrum.myappcreater.Interface.Onholderitemclick;
 import com.techastrum.myappcreater.R;
 import com.techastrum.myappcreater.adapter.ProductAdapter1;
-import com.techastrum.myappcreater.fragment.AddFragment;
 import com.techastrum.myappcreater.fragmentdialog.MerchantInfo;
 import com.techastrum.myappcreater.model.Product;
 
@@ -209,6 +205,8 @@ public class HomeProfile extends AppCompatActivity implements Onholderitemclick 
 
         dialog.show();
     }
+
+
     private void show_dialog_download_app(int position) {
         final Dialog dialog = new Dialog(context, R.style.WideDialog);
         dialog.requestWindowFeature(Window.FEATURE_NO_TITLE); //before
@@ -322,7 +320,7 @@ public class HomeProfile extends AppCompatActivity implements Onholderitemclick 
 
                 return true;
             case R.id.publish_app:
-                intent=new Intent(getApplicationContext(),App_Pricing.class);
+                intent=new Intent(getApplicationContext(), CartActivity.class);
                 intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK);
                 intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
                 startActivity(intent);

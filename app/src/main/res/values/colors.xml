@@ -2,17 +2,18 @@
 <resources>
 
 
-    <color name="colorPrimary">#293859</color>
-    <color name="colorPrimaryDark">#14254B</color>
-    <color name="colorAccent">#5E35B1</color>
+    <color name="colorPrimary">#00cc12</color>
+    <color name="colorPrimaryDark">#00B307</color>
+    <color name="colorAccent">#00B307</color>
     <color name="white">#FFFFFF</color>
     <color name="yellow">#FFB300</color>
-    <color name="grey">#DBD6D6</color>
+    <color name="grey">#F5F5F5</color>
     <color name="primaryTextColor">#555555</color>
     <color name="primaryTextColorDark">#000</color>
     <color name="grey_semitransparent">#c8303030</color>
     <color name="cardBackgroundColor">#ffffff</color>
     <color name="dividerColor">#dedede</color>
+    <color name="theme_color">#293859</color>
     <color name="btnTextColor">@color/colorPrimary</color>
     <color name="mainBackground">#ffffff</color>
 

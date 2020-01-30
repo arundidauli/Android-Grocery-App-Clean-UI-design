@@ -12,29 +12,26 @@ import androidx.annotation.NonNull;
 import androidx.cardview.widget.CardView;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.bumptech.glide.Glide;
-import com.google.android.material.snackbar.Snackbar;
 import com.techastrum.myappcreater.R;
-import com.techastrum.myappcreater.activities.App_Pricing;
 import com.techastrum.myappcreater.model.Product;
-import com.techastrum.myappcreater.utils.Utils;
 
 import java.util.List;
 
-public class CardProductAdapter extends RecyclerView.Adapter<CardProductAdapter.MyViewHolder> {
+public class TrendingProductAdapter extends RecyclerView.Adapter<TrendingProductAdapter.MyViewHolder> {
     private List<Product> productList;
     private Context context;
+    private Integer count=1;
 
-    public CardProductAdapter(List<Product> productList, Context context) {
+    public TrendingProductAdapter(List<Product> productList, Context context) {
         this.productList = productList;
         this.context = context;
     }
 
     @NonNull
     @Override
-    public CardProductAdapter.MyViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+    public TrendingProductAdapter.MyViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         View itemView = LayoutInflater.from(parent.getContext())
-                .inflate(R.layout.card_item, parent, false);
+                .inflate(R.layout.trending_card_item, parent, false);
 
         return new MyViewHolder(itemView);
     }
@@ -42,8 +39,7 @@ public class CardProductAdapter extends RecyclerView.Adapter<CardProductAdapter.
     @Override
     public void onBindViewHolder(@NonNull MyViewHolder holder, int position) {
 
-        holder.pack_des.setText(productList.get(position).getDetail());
-        holder.pack_amount.setText(productList.get(position).getPrice());
+
         holder.card_select.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -52,6 +48,29 @@ public class CardProductAdapter extends RecyclerView.Adapter<CardProductAdapter.
             }
         });
 
+        holder.qty.setText(String.valueOf(count));
+
+
+            holder.minus.setOnClickListener(v -> {
+
+                count -= 1;
+                if (count<=1){
+                    count=1;
+                    holder.qty.setText(String.valueOf(count));
+                }else {
+                    holder.qty.setText(String.valueOf(count));
+                }
+
+
+            });
+
+
+        holder.plus.setOnClickListener(v -> {
+            count += 1;
+
+            holder.qty.setText(String.valueOf(count));
+
+        });
 
 
 
@@ -59,15 +78,17 @@ public class CardProductAdapter extends RecyclerView.Adapter<CardProductAdapter.
 
 
     class MyViewHolder extends RecyclerView.ViewHolder {
-        private TextView pack_amount, pack_des;
-        private ImageView pack_img;
+        private TextView pack_amount, qty;
+        private ImageView plus,minus,product_image;
         private CardView card_select;
 
         MyViewHolder(View view) {
             super(view);
-            pack_amount =  view.findViewById(R.id.pack_amount);
-            pack_des =  view.findViewById(R.id.pack_des);
-            pack_img = view.findViewById(R.id.pack_img);
+            pack_amount =  view.findViewById(R.id.price);
+            qty =  view.findViewById(R.id.qty);
+            product_image = view.findViewById(R.id.product_image);
+            minus = view.findViewById(R.id.minus);
+            plus = view.findViewById(R.id.plus);
             card_select = view.findViewById(R.id.card_select);
 
         }
